@@ -13,6 +13,10 @@ export default defineNuxtConfig({
     },
     devtools: { enabled: true },
     css: ["@/assets/_main.scss"],
-    modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
+    modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt", "nuxt-icon"],
     ssr: false,
+    runtimeConfig: {
+        jwtAccessSecret: process.env.JWT_ACCESS_TOKEN_SECRET,
+        jwtRefreshSecret: process.env.JWT_REFRESH_TOKEN_SECRET,
+    },
 });
