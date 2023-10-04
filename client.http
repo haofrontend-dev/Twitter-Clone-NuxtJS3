@@ -1,0 +1,14 @@
+POST http://localhost:3000/api/auth/login
+content-type: application/json
+
+{
+    "username": "dev1",
+    "password": "password"
+}
+
+###
+GET  http://localhost:3000/api/auth/refresh
+
+###
+GET http://localhost:3000/api/auth/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTBkYjI1OTUzMzFlOGZhZmZkNWZmZTMiLCJpYXQiOjE2OTY0MDMyNjEsImV4cCI6MTY5NjQwMzg2MX0.2nL7vCmus_aTqO2MxB1ZUNbyS21DLxnQ3vgrsIUO2J8

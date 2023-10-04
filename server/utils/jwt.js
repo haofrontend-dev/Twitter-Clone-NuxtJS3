@@ -14,6 +14,24 @@ const generateRefreshToken = (user) => {
 	})
 }
 
+export const decoreRefreshToken = (token) => {
+	const config = useRuntimeConfig()
+	try {
+		return jwt.verify(token, config.jwtRefreshSecret)
+	} catch (error) {
+		return null
+	}
+}
+
+export const decoreAccessToken = (token) => {
+	const config = useRuntimeConfig()
+	try {
+		return jwt.verify(token, config.jwtAccessSecret)
+	} catch (error) {
+		return null
+	}
+}
+
 export const generateTokens = (user) => {
 	const accessToken = generateAccessToken(user)
 	const refreshToken = generateRefreshToken(user)
@@ -22,4 +40,11 @@ export const generateTokens = (user) => {
 		accessToken,
 		refreshToken,
 	}
+}
+
+export const senRefreshToken = (event, token) => {
+	setCookie(event, 'refresh_token', token, {
+		httpOnly: true,
+		sameSite: true,
+	})
 }
